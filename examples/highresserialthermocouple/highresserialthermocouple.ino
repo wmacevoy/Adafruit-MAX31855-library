@@ -15,7 +15,7 @@
  ****************************************************/
 
 #include <SPI.h>
-#include "Adafruit_MAX31855.h"
+#include "Adafruit_HighResMAX31855.h"
 
 // Default connection is using software SPI, but comment and uncomment one of
 // the two examples below to switch between software SPI and hardware SPI:
@@ -27,7 +27,7 @@
 #define MAXCLK  5
 
 // initialize the Thermocouple
-Adafruit_MAX31855 thermocouple(MAXCLK, MAXCS, MAXDO);
+Adafruit_HighResMAX31855 thermocouple(MAXCLK, MAXCS, MAXDO);
 
 // Example creating a thermocouple instance with hardware SPI (Uno/Mega only)
 // on a given CS pin.

@@ -24,13 +24,16 @@
 #endif
 
 class Adafruit_MAX31855 {
+ private:
+  static uint16_t state;
  public:
   Adafruit_MAX31855(int8_t SCLK, int8_t CS, int8_t MISO);
   Adafruit_MAX31855(int8_t CS);
 
-  double readInternal(void);
-  double readCelsius(void);
-  double readFarenheit(void);
+  double readInternal();
+  double readCelsius();
+  double readFahrenheit();
+  inline double readFarenheit() { return readFahrenheit(); }
   uint8_t readError();
 
  private:
