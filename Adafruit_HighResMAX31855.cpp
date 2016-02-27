@@ -24,6 +24,9 @@ double Adafruit_HighResMAX31855::readInternal() {
 double Adafruit_HighResMAX31855::readCelsius() {
   ready();
 
+  // Code from jh421797 (slightly modified to avoid multiple reads,
+  // and account for error codes by wmacevoy).
+
   float thermocoupleTemperature = lowRes.readCelsius(); 
   if (isnan(thermocoupleTemperature)) return NAN;
 
