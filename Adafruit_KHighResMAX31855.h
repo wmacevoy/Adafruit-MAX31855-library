@@ -17,6 +17,6 @@ class  Adafruit_KHighResMAX31855 {
  public: inline double readFarenheit() // mispell as original
   { return readFahrenheit(); } 
 
- public: uint8_t readError();
- public: double readInternal();
+ public: inline uint8_t readError() { return lowRes.readError(); }
+ public: inline double readInternal() { return lowRes.readInternal(); }
 };
