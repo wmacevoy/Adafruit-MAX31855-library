@@ -27,12 +27,12 @@
 #define MAXCLK  5
 
 // initialize the Thermocouple
-Adafruit_HighResMAX31855 thermocouple(MAXCLK, MAXCS, MAXDO);
+Adafruit_KHighResMAX31855 thermocouple(MAXCLK, MAXCS, MAXDO);
 
 // Example creating a thermocouple instance with hardware SPI (Uno/Mega only)
 // on a given CS pin.
 //#define MAXCS   10
-//Adafruit_MAX31855 thermocouple(MAXCS);
+//Adafruit_KHighResMAX31855 thermocouple(MAXCS);
 
 #if defined(ARDUINO_ARCH_SAMD)
 // for Zero, output on USB Serial console, remove line below if using programming port to program the Zero!

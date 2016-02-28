@@ -1,6 +1,6 @@
-#include <Adafruit_HighResMAX31855.h>
+#include <Adafruit_KHighResMAX31855.h>
 
-void Adafruit_HighResMAX31855::ready() {
+void Adafruit_KHighResMAX31855::ready() {
   if (!isReady) {
     uint32_t t=millis();
     if (t < 200) { delay(200-t); } // 200ms to prep
@@ -9,19 +9,19 @@ void Adafruit_HighResMAX31855::ready() {
   }
 }
 
-Adafruit_HighResMAX31855::Adafruit_HighResMAX31855(int8_t SCLK, int8_t CS, int8_t MISO)
+Adafruit_KHighResMAX31855::Adafruit_KHighResMAX31855(int8_t SCLK, int8_t CS, int8_t MISO)
   : isReady(false), lowRes(SCLK,CS,MISO) {}
 
-Adafruit_HighResMAX31855::Adafruit_HighResMAX31855(int8_t CS)
+Adafruit_KHighResMAX31855::Adafruit_KHighResMAX31855(int8_t CS)
   : isReady(false), lowRes(CS) {}
 
-double Adafruit_HighResMAX31855::readInternal() {
+double Adafruit_KHighResMAX31855::readInternal() {
   ready();
   return lowRes.readInternal();
 }
 
 
-double Adafruit_HighResMAX31855::readCelsius() {
+double Adafruit_KHighResMAX31855::readCelsius() {
   ready();
 
   // Code from jh421797 (slightly modified to avoid multiple reads,
@@ -108,13 +108,13 @@ double Adafruit_HighResMAX31855::readCelsius() {
       b9 * pow(voltageSum, 9.0);
 }
 
-double Adafruit_HighResMAX31855::readFahrenheit() {
+double Adafruit_KHighResMAX31855::readFahrenheit() {
   double C = readCelsius();
   if (isnan(C)) return NAN;
   return (9.0/5.0)*C+32.0;
 }
 
-double Adafruit_HighResMAX31855::readKelvin() {
+double Adafruit_KHighResMAX31855::readKelvin() {
   double C = readCelsius();
   if (isnan(C)) return NAN;
   return C+273.16;
